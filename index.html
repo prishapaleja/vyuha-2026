@@ -4,40 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VYŪHA 2026 — DJSCE Trinity Inter-College Sports Tournament</title>
-<meta name="description" content="VYŪHA 2026 — DJSCE Trinity's inter-college sports tournament. Cricket, Football, Basketball, Pickleball, Badminton. 28 Oct – 2 Nov 2026.">
+<meta name="description" content="VYŪHA 2026 — DJSCE Trinity's inter-college sports tournament. Football, Panna, Cricket, Basketball, Pickleball, Badminton. 27 Oct – 2 Nov 2026.">
 
 <!--
   DEVELOPER NOTES (content fidelity / brochure sourcing)
   =======================================================
-  1. This site is built entirely from the supplied VYŪHA 2026 brochure PDF.
-     No fees, dates, venues, player counts, prize pools or rules have been
-     invented or altered.
+  1. This site is built from the supplied VYŪHA 2026 brochure PDF.
+     No tournament facts have been invented; existing registration URLs
+     are preserved where they were already present in the source.
 
-  2. FLAGGED INCONSISTENCY — CRICKET VENUE:
-     The brochure's Cricket page prints a "VENUE:" label but leaves the
-     value blank. We have preserved this as an explicit placeholder
-     ("Venue to be announced") rather than guessing a location. Replace
-     the placeholder in `sportsData.cricket.venue` (script.js is inlined
-     below, search "TODO: VENUE") once confirmed.
+  2. FLAGGED INCONSISTENCY — FOOTBALL QUALIFICATION NAMING:
+     The Football overview says "TOP 2 TEAMS FROM EACH GROUP WILL QUALIFY
+     FOR THE QUALI-FINALS", while the detailed rules call the same round
+     the "QUARTER-FINALS". Both labels are retained in their respective
+     contexts rather than silently changing the approved brochure wording.
 
-  3. FLAGGED INCONSISTENCY — FOOTBALL QUALIFICATION NAMING:
-     The Football overview stats call the second round the "QUALI-FINALS"
-     ("TOP 2 TEAMS FROM EACH GROUP WILL QUALIFY FOR THE QUALI-FINALS" +
-     format line "QUALIS → SEMIS → FINALS"), but the detailed Football
-     Rules block refers to the same round as the "QUARTER-FINALS"
-     ("4 GROUPS WITH TOP 2 ADVANCING TO QUARTER-FINALS"). Both labels are
-     reproduced verbatim in their original locations (stats block vs.
-     rules block) rather than silently reconciled — see the Football
-     section markup, comment "BROCHURE INCONSISTENCY".
+  3. Instagram link: the brochure gives only the handle "@djsce.trinity"
+     with no URL. The link below points to the direct profile URL for that
+     exact handle.
 
-  4. Instagram link: the brochure gives only the handle "@djsce.trinity"
-     with no URL. The link below points to https://www.instagram.com/djsce.trinity/
-     — the direct, literal Instagram profile URL for that exact handle,
-     not a separately invented destination. Swap it out if the real
-     profile URL differs.
-
-  5. Registration links are placeholders: REGISTER_LINKS constants near
-     the top of the script. Replace with real Google Form / portal URLs.
+  4. Registration links: existing official form links from the source code
+     are preserved. Panna does not have a supplied registration URL yet and
+     therefore remains a visible placeholder until the official link is added.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -405,11 +393,13 @@ section{ position:relative; overflow:hidden; }
    REGISTRATION SECTION
    ========================================================================== */
 #register{ padding: clamp(90px,14vw,150px) 0; }
-.register-grid{ display:grid; grid-template-columns: repeat(5,1fr); gap:1px; background: rgba(247,240,232,.18); border:1px solid rgba(247,240,232,.18); margin-top: 50px; }
+.register-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: rgba(247,240,232,.18); border:1px solid rgba(247,240,232,.18); margin-top: 50px; }
 @media (max-width: 980px){ .register-grid{ grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px){ .register-grid{ grid-template-columns: 1fr; } }
 .register-card{ background: var(--navy); padding: 30px 24px; display:flex; flex-direction:column; gap:18px; transition: background .3s ease; }
 .register-card:hover{ background: var(--navy-mid); }
+.register-card-disabled{ cursor:default; opacity:.72; }
+.register-card-disabled .rc-link{ color: var(--cream); }
 .register-card .rc-name{ font-family:var(--font-display); font-size:1.6rem; letter-spacing:.02em; }
 .register-card .rc-fee{ font-size:.78rem; opacity:.65; letter-spacing:.06em; }
 .register-card .rc-link{ margin-top:auto; font-size:.7rem; letter-spacing:.18em; display:flex; align-items:center; gap:8px; color: var(--cream); }
@@ -468,7 +458,7 @@ footer{ padding: 34px var(--edge); display:flex; flex-wrap:wrap; gap:14px; align
     <div class="intro-line" id="i-presents">DJSCE TRINITY PRESENTS</div>
     <h1 class="intro-word" id="i-word"><img src="" data-logo="cream" alt="VYŪHA"></h1>
     <div class="intro-sub" id="i-sub">THE INTER-COLLEGE SPORTS TOURNAMENT</div>
-    <div class="intro-dates" id="i-dates">28<sup>TH</sup> OCT — 2<sup>ND</sup> NOV 2026</div>
+    <div class="intro-dates" id="i-dates">27<sup>TH</sup> OCT — 2<sup>ND</sup> NOV 2026</div>
     <div class="intro-cta" id="i-cta">SCROLL TO ENTER <span class="chev"></span></div>
   </div>
 </div>
@@ -508,11 +498,11 @@ footer{ padding: 34px var(--edge); display:flex; flex-wrap:wrap; gap:14px; align
     <div class="texture-navy"></div>
     <div class="container hero-grid">
       <h1 class="hero-title"><img data-logo="cream" src="" alt="VYŪHA"></h1>
-      <p class="hero-tag">DJSCE Trinity's official inter-college sports tournament — cricket, football, basketball, pickleball and badminton, one grand formation.</p>
+      <p class="hero-tag">DJSCE Trinity's official inter-college sports tournament — football, panna, cricket, basketball, pickleball and badminton, one grand formation.</p>
       <div class="hero-meta">
-        <div><div class="label">TOURNAMENT DATES</div><div class="value">28 OCT — 2 NOV 2026</div></div>
+        <div><div class="label">TOURNAMENT DATES</div><div class="value">27 OCT — 2 NOV 2026</div></div>
         <div><div class="label">ORGANISED BY</div><div class="value">DJSCE TRINITY</div></div>
-        <div><div class="label">SPORTS</div><div class="value">5 DISCIPLINES</div></div>
+        <div><div class="label">SPORTS</div><div class="value">6 EVENTS</div></div>
       </div>
     </div>
     <div class="hero-scroll"><span class="line"></span> SCROLL</div>
@@ -579,7 +569,7 @@ footer{ padding: 34px var(--edge); display:flex; flex-wrap:wrap; gap:14px; align
     <div class="container">
       <div class="h-kicker">JOIN THE FORMATION</div>
       <h2 class="h-display">REGISTER<br>YOUR TEAM</h2>
-      <p class="hero-tag" style="margin-top:20px;">Pick a discipline below. Each link opens the official registration form for that sport — placeholders shown here will be swapped for live links closer to the tournament.</p>
+      <p class="hero-tag" style="margin-top:20px;">Pick an event below. </p>
       <div class="register-grid" id="registerGrid"></div>
     </div>
   </section>
@@ -619,7 +609,7 @@ footer{ padding: 34px var(--edge); display:flex; flex-wrap:wrap; gap:14px; align
     <div class="texture-navy"></div>
     <div class="container">
       <h2 class="wordmark-final"><img data-logo="cream" src="" alt="VYŪHA"></h2>
-      <div class="dates-final">28 OCT — 2 NOV 2026</div>
+      <div class="dates-final">27 OCT — 2 NOV 2026</div>
       <div class="org-final">DJSCE TRINITY</div>
       <a href="#register" class="btn btn-fill magnetic">REGISTER NOW</a>
     </div>
@@ -665,8 +655,9 @@ if(hasGSAP){ gsap.registerPlugin(ScrollTrigger); }
    PLACEHOLDER REGISTRATION LINKS — replace with real form URLs
    ========================================================================== */
 const REGISTER_LINKS = {
-  cricket:    "https://forms.gle/iGa3dLak9rF7eJoT9",
   football:   "https://forms.gle/nWoqs1eqpB9AnENKA",
+  panna:      "", // TODO: replace with the official Panna registration link
+  cricket:    "https://forms.gle/iGa3dLak9rF7eJoT9",
   basketball: "https://forms.gle/fPrm1rPLJV83u2t5A",
   pickleball: "https://forms.gle/Dtg6yfzYH7Qzj7DWA",
   badminton:  "https://forms.gle/2QRPwzHxBfwxHSTt6",
@@ -680,6 +671,7 @@ const ICONS = {
   cricketBall: `<svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="2.5"/><path d="M20 30 Q50 10 80 30 M20 70 Q50 90 80 70" stroke="currentColor" stroke-width="2"/></svg>`,
   cricketBat: `<svg viewBox="0 0 100 220" fill="none"><rect x="34" y="10" width="32" height="120" rx="14" stroke="currentColor" stroke-width="2.5"/><rect x="42" y="130" width="16" height="70" rx="6" stroke="currentColor" stroke-width="2.5"/></svg>`,
   football: `<svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="2.5"/><path d="M50 26 L64 38 L58 56 L42 56 L36 38 Z M50 26 V12 M64 38 L78 34 M58 56 L66 72 M42 56 L34 72 M36 38 L22 34" stroke="currentColor" stroke-width="1.8"/></svg>`,
+  panna: `<svg viewBox="0 0 160 120" fill="none"><rect x="18" y="18" width="124" height="84" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M18 38 H142 M18 58 H142 M18 78 H142 M42 18 V102 M68 18 V102 M94 18 V102 M120 18 V102" stroke="currentColor" stroke-width="1.2" opacity=".7"/><circle cx="80" cy="62" r="9" stroke="currentColor" stroke-width="2.2"/></svg>`,
   basketball: `<svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="42" stroke="currentColor" stroke-width="2.5"/><path d="M8 50 H92 M50 8 V92 M20 18 Q50 50 20 82 M80 18 Q50 50 80 82" stroke="currentColor" stroke-width="2"/></svg>`,
   hoop: `<svg viewBox="0 0 140 100" fill="none"><rect x="8" y="8" width="50" height="36" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M8 44 H90" stroke="currentColor" stroke-width="3"/><path d="M20 44 L18 78 M32 44 L34 78 M44 44 L46 78 M56 44 L58 78 M68 44 L64 78 M80 44 L72 78" stroke="currentColor" stroke-width="1.6"/></svg>`,
   paddle: `<svg viewBox="0 0 100 170" fill="none"><rect x="18" y="8" width="64" height="90" rx="30" stroke="currentColor" stroke-width="2.5"/><rect x="42" y="98" width="16" height="60" rx="6" stroke="currentColor" stroke-width="2.5"/></svg>`,
@@ -710,7 +702,64 @@ const commonRules = [
 
 const sportsData = [
   {
-    id:"cricket", key:"cricket", index:"01", name:"CRICKET", theme:"sec-navy",
+    id:"football", key:"football", index:"01", name:"FOOTBALL", subtitle:"(BOYS & GIRLS)", theme:"sec-navy",
+    icons:["football"],
+    stats:[
+      {num:"9V9", lbl:"TOURNAMENT"},
+      {num:"15 MIN", lbl:"HALVES ×2"},
+      {num:"₹30,000", lbl:"PRIZE POOL (UPTO)"},
+      {num:"₹5,500", lbl:"REGISTRATION / TEAM"},
+    ],
+    details:[
+      {lbl:"PLAYERS", val:"9 players + 6 substitutes per team"},
+      {lbl:"QUALIFICATION", val:"Top 2 teams from each group qualify for the quarter-finals"},
+      {lbl:"FORMAT", val:"Qualis → Semis → Finals, plus a Third Place match"},
+      {lbl:"DATES", val:"27 Oct & 28 Oct 2026"},
+      {lbl:"VENUE", val:"Cooperage Football Ground, Nariman Point"},
+      {lbl:"REGISTRATION FEE", val:"₹5,500 per team"},
+    ],
+    rules:[
+      "FORMAT: 9-a-side (9v9); squads of 11 to 15 players; 4 groups with top 2 advancing to quarter-finals; includes 3rd place match.",
+      "DURATION: Two 15-minute halves with a 2-minute half-time break.",
+      "POINTS: Win = 3, Draw = 1, Loss = 0. Walkover = 3 points (3–0 win).",
+      "CARDS & DISCIPLINE: 2 yellow cards = 1 red card; red card causes match ejection + 1-match suspension. Referee decisions are final.",
+      "GAMEPLAY: No offsides; direct goals from throw-ins or goal kicks do not count; restarts via throw-in.",
+      "SUBSTITUTIONS & LINEUPS: Rolling substitutions allowed (must inform referee); lineup submitted in advance.",
+      "EQUIPMENT: Footwear required; no bare feet.",
+    ],
+    tiebreak:{title:"TIE-BREAKER", paragraphs:["If a knockout match ends in a draw at the end of regulation time, the result will be decided by a penalty shoot-out.","Each team will take 5 penalties. If the scores remain level, the shoot-out will proceed to sudden death."]},
+  },
+  {
+    id:"panna", key:"panna", index:"02", name:"PANNA", theme:"sec-cream",
+    icons:["panna"],
+    stats:[
+      {num:"1V1", lbl:"TOURNAMENT"},
+      {num:"6M × 4M", lbl:"CAGE"},
+      {num:"MAX", lbl:"PROTEIN BARS"},
+      {num:"FREE", lbl:"REGISTRATION"},
+    ],
+    details:[
+      {lbl:"FORMAT", val:"1v1 tournament"},
+      {lbl:"PLAYING AREA", val:"6m × 4m cage"},
+      {lbl:"DATES", val:"27 Oct & 28 Oct 2026"},
+      {lbl:"VENUE", val:"Cooperage Football Ground, Nariman Point"},
+      {lbl:"REGISTRATION", val:"Free for all"},
+      {lbl:"PRIZE", val:"Max Protein Bars"},
+    ],
+    rules:[
+      "The playing area will be a cage measuring 6 metres by 4 metres.",
+      "Each match will be played one versus one.",
+      "A panna is worth 2 points and a regular goal is worth 1 point.",
+      "The first player to reach 5 points wins the match.",
+      "After each match, the winner receives 2 tournament points and the loser receives minus 1 tournament point.",
+      "Tournament points are separate from the points scored during a match.",
+      "When a player reaches 10 tournament points, the player receives 3 protein bars.",
+      "If a player wins a match using only pannas and no regular goals, the player receives 1 protein bar.",
+    ],
+    tiebreak:{title:"TOURNAMENT POINTS", paragraphs:["Winner: +2 tournament points.","Loser: −1 tournament point. Tournament points are separate from match points."]},
+  },
+  {
+    id:"cricket", key:"cricket", index:"03", name:"CRICKET", subtitle:"(OVERARM)", theme:"sec-navy",
     icons:["cricketBall","cricketBat"],
     stats:[
       {num:"6 OVERS", lbl:"PER INNINGS"},
@@ -722,8 +771,8 @@ const sportsData = [
       {lbl:"PLAYERS", val:"11 players + up to 4 substitutes per team"},
       {lbl:"QUALIFICATION", val:"Table topper from each group qualifies for the semi-finals"},
       {lbl:"FORMAT", val:"2 league matches per team"},
-      {lbl:"DATES", val:"27 Oct & 28 Oct 2026"},
-      {lbl:"VENUE", val:"Venue to be announced — not specified in brochure"},
+      {lbl:"DATES", val:"29 Oct & 30 Oct 2026"},
+      {lbl:"VENUE", val:"Chhatrapati Shivaji Maharaj Sports Complex, Andheri"},
       {lbl:"REGISTRATION FEE", val:"₹5,000 per team"},
     ],
     rules:[
@@ -739,61 +788,35 @@ const sportsData = [
     tiebreak:{title:"TIE-BREAKER", paragraphs:["A tie will be decided by a Super Over.","In case of a Super Over tie, the winner will be decided by boundary count."]},
   },
   {
-    id:"football", key:"football", index:"02", name:"FOOTBALL", subtitle:"(BOYS)", theme:"sec-cream",
-    icons:["football"],
-    stats:[
-      {num:"9V9", lbl:"TOURNAMENT"},
-      {num:"15 MIN", lbl:"HALVES ×2"},
-      {num:"₹30,000", lbl:"PRIZE POOL (UPTO)"},
-      {num:"₹5,500", lbl:"REGISTRATION / TEAM"},
-    ],
-    details:[
-      {lbl:"PLAYERS", val:"9 players + 6 substitutes per team"},
-      {lbl:"QUALIFICATION", val:"Top 2 teams from each group qualify for the Quali-finals*"},
-      {lbl:"FORMAT", val:"Qualis → Semis → Finals, plus a Third Place match"},
-      {lbl:"DATES", val:"29 Oct & 30 Oct 2026"},
-      {lbl:"VENUE", val:"Wing's, Bandra"},
-      {lbl:"REGISTRATION FEE", val:"₹5,500 per team"},
-    ],
-    rules:[
-      "FORMAT: 9-a-side (9v9); squads of 11 to 15 players; 4 groups with top 2 advancing to quarter-finals; includes 3rd place match.",
-      "DURATION: Two 15-minute halves with a 2-minute half-time break.",
-      "POINTS: Win = 3, Draw = 1, Loss = 0. Walkover = 3 points (3–0 win).",
-      "CARDS & DISCIPLINE: 2 yellow cards = 1 red card; red card causes match ejection + 1-match suspension. Referee decisions are final.",
-      "GAMEPLAY: No offsides; direct goals from throw-ins or goal kicks do not count; restarts via throw-in.",
-      "SUBSTITUTIONS & LINEUPS: Rolling substitutions allowed (must inform referee); lineup submitted in advance.",
-      "EQUIPMENT: Footwear required; no bare feet.",
-    ],
-    tiebreak:{title:"TIE-BREAKER", paragraphs:["If a knockout match ends in a draw at the end of regulation time, the result will be decided by a penalty shoot-out.","Each team will take 5 penalties. If the scores remain level, the shoot-out will proceed to sudden death."]},
-  },
-  {
-    id:"basketball", key:"basketball", index:"03", name:"BASKETBALL", theme:"sec-navy",
+    id:"basketball", key:"basketball", index:"04", name:"BASKETBALL", subtitle:"(BOYS)", theme:"sec-cream",
     icons:["basketball","hoop"],
     stats:[
-      {num:"5V5", lbl:"TOURNAMENT"},
-      {num:"4×5 MIN", lbl:"QUARTERS"},
-      {num:"₹15,000", lbl:"PRIZE POOL (UPTO)"},
-      {num:"₹3,000", lbl:"REGISTRATION / TEAM"},
+      {num:"3V3", lbl:"HALF-COURT TOURNAMENT"},
+      {num:"2×7 MIN", lbl:"QUARTERS"},
+      {num:"₹10,000", lbl:"PRIZE POOL (UPTO)"},
+      {num:"₹1,500", lbl:"REGISTRATION / TEAM"},
     ],
     details:[
-      {lbl:"PLAYERS", val:"5 players + up to 5 substitutes per team"},
-      {lbl:"QUALIFICATION", val:"Top 2 teams per group (8 teams total) advance to knockouts"},
+      {lbl:"PLAYERS", val:"3 players + up to 2 substitutes per team"},
       {lbl:"FORMAT", val:"Group stage followed by knockouts"},
+      {lbl:"DAY 1", val:"Groups of 4; each team plays every other team once"},
+      {lbl:"DAY 2", val:"Top 2 from each group advance; groups of 3, then semi-finals & playoffs"},
       {lbl:"DATES", val:"31 Oct & 1 Nov 2026"},
       {lbl:"VENUE", val:"JVPD, Juhu"},
-      {lbl:"REGISTRATION FEE", val:"₹3,000 per team"},
+      {lbl:"REGISTRATION FEE", val:"₹1,500 per team"},
     ],
     rules:[
-      "GROUP STAGE (DAY 1): Each team will play every other team in its group once in a round-robin format.",
-      "The top 2 teams from each group, making 8 teams in total, will qualify for the knockout stage.",
-      "Each match will consist of 4 quarters of 5 minutes each, with a running or stopped clock as decided by the organisers on the day.",
-      "A 1-minute break will be provided after each quarter, with a 2-minute half-time break.",
-      "General basketball rules will be followed throughout the tournament.",
+      "GROUP STAGE (DAY 1): Teams will be divided into groups of 4. Each team will play every other team in its group once.",
+      "QUALIFICATION: The top 2 teams from each group will advance to Day 2. These teams will be divided into groups of 3.",
+      "DAY 2: Each team will play the other teams in its group once. The top team from each group will advance to the semi-finals, followed by the third-place playoff and final.",
+      "MATCH: Each match will consist of 2 quarters of 7 minutes, with a 2-minute half-time break. Each team gets one 30-second timeout.",
+      "COURT: Matches will be played on a half-court with one basket.",
+      "POSSESSION & SHOT CLOCK: The ball must be cleared beyond the 2-point arc after a change of possession, with a 12-second shot clock in effect.",
     ],
-    tiebreak:{title:"TIE-BREAKER", paragraphs:["LEAGUE: In case of a tie at the end of regulation time, a Golden Basket will be played — the team scoring the first basket wins the match.","PLAYOFFS: In case of a tie at the end of regulation time, 3 minutes of overtime will be played, divided into two halves. If still tied, Golden Basket decides the winner."]},
+    tiebreak:{title:"TIE-BREAKER", paragraphs:["In case of a tie at the end of regulation time, a Golden Basket will be played.","The team scoring the first basket wins the match."]},
   },
   {
-    id:"pickleball", key:"pickleball", index:"04", name:"PICKLEBALL", theme:"sec-cream",
+    id:"pickleball", key:"pickleball", index:"05", name:"PICKLEBALL", theme:"sec-navy",
     icons:["paddle","pickleBall"],
     stats:[
       {num:"15 PTS", lbl:"LEAGUE / KNOCKOUT"},
@@ -806,11 +829,11 @@ const sportsData = [
       {lbl:"CATEGORIES", val:"Men's & Women's Singles · Men's & Mixed (1M & 1F) Doubles"},
       {lbl:"TOURNAMENT", val:"Group stage followed by knockouts"},
       {lbl:"DATES", val:"31 Oct & 1 Nov 2026"},
-      {lbl:"VENUE", val:"JVPD Arena, Juhu"},
-      {lbl:"REGISTRATION FEE", val:"₹300 Singles (M/W) · ₹700 Doubles per team"},
+      {lbl:"VENUE", val:"JVPD, Juhu"},
+      {lbl:"REGISTRATION FEE", val:"₹300 Men's & Women's Singles · ₹700 Men's & Mixed (1M & 1F) Doubles"},
     ],
     rules:[
-      "SCORING & MATCH FORMAT: Rally scoring (point awarded on every rally); winner is the side leading when time expires; ties go to a “sudden death golden point.”",
+      "SCORING & MATCH FORMAT: Rally scoring (point awarded on every rally); winner is the side leading when time expires; ties go to a “Sudden Death Golden Point.”",
       "SERVING: Must be underhand with contact below the waist; hit diagonally past the opponent's kitchen line; serve from the right court on even team scores and left on odd.",
       "TWO-BOUNCE RULE: The serve and the return must both bounce once before either side can volley the ball.",
       "THE KITCHEN (NON-VOLLEY ZONE): Volleying is forbidden while standing in or touching the kitchen zone; players may enter the kitchen only after the ball bounces inside it.",
@@ -820,7 +843,7 @@ const sportsData = [
     tiebreak:{title:"TIE-BREAKER", paragraphs:["If scores are tied at full time, a “Sudden Death Golden Point” decides the winner."]},
   },
   {
-    id:"badminton", key:"badminton", index:"05", name:"BADMINTON", theme:"sec-navy",
+    id:"badminton", key:"badminton", index:"06", name:"BADMINTON", theme:"sec-cream",
     icons:["shuttle","racket"],
     stats:[
       {num:"15 PTS", lbl:"LEAGUE / KNOCKOUT"},
@@ -833,8 +856,8 @@ const sportsData = [
       {lbl:"CATEGORIES", val:"Men's & Women's Singles · Men's & Mixed (1M & 1F) Doubles"},
       {lbl:"TOURNAMENT", val:"Group stage followed by knockouts"},
       {lbl:"DATES", val:"2 Nov 2026"},
-      {lbl:"VENUE", val:"Andheri Sports Complex"},
-      {lbl:"REGISTRATION FEE", val:"₹350 Singles (M/W) · ₹700 Doubles per team"},
+      {lbl:"VENUE", val:"Andheri Sports Complex, Andheri"},
+      {lbl:"REGISTRATION FEE", val:"₹350 Men's & Women's Singles · ₹700 Men's & Mixed (1M & 1F) Doubles"},
     ],
     rules:[
       "The final will be played to 3 sets of 15 points each.",
@@ -894,7 +917,7 @@ sportsData.forEach((s)=>{
     <div class="texture-${s.theme==='sec-cream'?'cream':'navy'}"></div>
     <div class="sport-visual-stage" data-sport="${s.key}"></div>
     <div class="container sport-inner">
-      <div class="sport-index">${s.index} / 05</div>
+      <div class="sport-index">${s.index} / 06</div>
       <div class="sport-title-row">
         <h2 class="sport-title" data-title>${s.name}</h2>
         ${s.subtitle ? `<div class="sport-subtitle">${s.subtitle}</div>` : ''}
@@ -903,7 +926,7 @@ sportsData.forEach((s)=>{
       <div class="detail-grid" data-reveal-group>${detailItems}</div>
       ${s.footnote ? `<p style="font-size:.78rem;opacity:.65;max-width:60ch;margin-bottom:36px;">${s.footnote}</p>` : ''}
       <div class="sport-actions">
-        <a class="btn btn-fill magnetic" href="${REGISTER_LINKS[s.key]}" target="_blank" rel="noopener">REGISTER NOW</a>
+        ${s.key !== 'panna' ? `<a class="btn btn-fill magnetic" href="${REGISTER_LINKS[s.key]}" target="_blank" rel="noopener">REGISTER NOW</a>` : ''}
         <button class="btn btn-outline magnetic" data-rules-toggle>${s.name} RULES</button>
       </div>
       <div class="sport-rules-panel" data-open="false">
@@ -937,11 +960,14 @@ sportsData.forEach((s)=>{
 const registerGrid = document.getElementById('registerGrid');
 sportsData.forEach(s=>{
   const fee = s.stats.find(c=>c.lbl.includes('REGISTRATION'))?.num || '';
-  const card = document.createElement('a');
-  card.className = 'register-card magnetic';
-  card.href = REGISTER_LINKS[s.key];
-  card.target = '_blank'; card.rel = 'noopener';
-  card.innerHTML = `<div class="rc-name">${s.name}</div><div class="rc-fee">${fee} PER TEAM/ENTRY</div><div class="rc-link">REGISTER <span class="arrow">→</span></div>`;
+  const href = REGISTER_LINKS[s.key];
+  const card = document.createElement(href ? 'a' : 'div');
+  card.className = `register-card magnetic${href || s.key==='panna' ? '' : ' register-card-disabled'}`;
+  if(href){
+    card.href = href;
+    card.target = '_blank'; card.rel = 'noopener';
+  }
+  card.innerHTML = `<div class="rc-name">${s.name}</div><div class="rc-fee">${fee}${s.key==='panna' ? ' — FREE FOR ALL' : ' PER TEAM/ENTRY'}</div><div class="rc-link">${s.key==='panna' ? 'OPEN TO ALL — 27 & 28 OCT' : (href ? 'REGISTER <span class="arrow">→</span>' : 'REGISTRATION LINK SOON')}</div>`;
   registerGrid.appendChild(card);
 });
 
@@ -971,7 +997,7 @@ railSections.forEach(r=>{
    OPENING CINEMATIC SEQUENCE
    ========================================================================== */
 const introObjectsHost = document.getElementById('intro-objects');
-const introIconKeys = ['cricketBall','football','basketball','paddle','shuttle','hoop'];
+const introIconKeys = ['football','panna','cricketBall','basketball','paddle','shuttle'];
 const introSpots = [
   {top:'10%', left:'8%', size:90, rot:-18}, {top:'70%', left:'6%', size:70, rot:14},
   {top:'14%', left:'86%', size:100, rot:22}, {top:'72%', left:'88%', size:80, rot:-10},
@@ -1187,6 +1213,15 @@ if(hasGSAP){
         .to(wipe, {scaleX:1, duration:.35, ease:'power4.in', transformOrigin:'left'}, '-=0.35')
         .to(wipe, {scaleX:0, transformOrigin:'right', duration:.5, ease:'power4.out'}, '+=0.05')
         .to(ball, {opacity:.1, scale:3.4, x:'40vw', duration:.7, ease:'power1.out'}, '-=0.9');
+    }
+
+    if(key==='panna'){
+      const cage = stageIcon(stage,'panna', `width:220px;height:165px;top:18%;right:5%;color:${color};`);
+      const ball = stageIcon(stage,'football', `width:70px;height:70px;top:52%;left:18%;color:${color};`);
+      gsap.timeline({scrollTrigger:{trigger:section, start:'top 75%', toggleActions:'play none none reverse'}})
+        .fromTo(cage, {opacity:0, x:100, scale:.8}, {opacity:.65, x:0, scale:1, duration:.8, ease:'power2.out'})
+        .fromTo(ball, {opacity:0, x:-100, rotation:0}, {opacity:.9, x:0, rotation:540, duration:.8, ease:'power2.out'}, '-=0.45')
+        .to([cage,ball], {opacity:.12, scale:1.45, duration:.8, ease:'power1.inOut'});
     }
 
     if(key==='basketball'){
