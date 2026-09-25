@@ -24,7 +24,7 @@
      exact handle.
 
   4. Registration links: existing official form links from the source code
-     are preserved. Panna does not have a supplied registration URL yet and
+     are preserved. Panna is open to all on event days and has no registration URL.
      therefore remains a visible placeholder until the official link is added.
 -->
 
@@ -569,7 +569,7 @@ footer{ padding: 34px var(--edge); display:flex; flex-wrap:wrap; gap:14px; align
     <div class="container">
       <div class="h-kicker">JOIN THE FORMATION</div>
       <h2 class="h-display">REGISTER<br>YOUR TEAM</h2>
-      <p class="hero-tag" style="margin-top:20px;">Pick an event below. </p>
+      <p class="hero-tag" style="margin-top:20px;">Pick an event below. Registration links are shown where available; any unavailable link will be published here once confirmed.</p>
       <div class="register-grid" id="registerGrid"></div>
     </div>
   </section>
@@ -656,7 +656,7 @@ if(hasGSAP){ gsap.registerPlugin(ScrollTrigger); }
    ========================================================================== */
 const REGISTER_LINKS = {
   football:   "https://forms.gle/nWoqs1eqpB9AnENKA",
-  panna:      "", // TODO: replace with the official Panna registration link
+  panna:      "", // Panna is open to all on event days; no registration link
   cricket:    "https://forms.gle/iGa3dLak9rF7eJoT9",
   basketball: "https://forms.gle/fPrm1rPLJV83u2t5A",
   pickleball: "https://forms.gle/Dtg6yfzYH7Qzj7DWA",
@@ -702,13 +702,13 @@ const commonRules = [
 
 const sportsData = [
   {
-    id:"football", key:"football", index:"01", name:"FOOTBALL", subtitle:"(BOYS & GIRLS)", theme:"sec-navy",
+    id:"football", key:"football", index:"01", name:"FOOTBALL", subtitle:"(BOYS)", theme:"sec-navy",
     icons:["football"],
     stats:[
       {num:"9V9", lbl:"TOURNAMENT"},
       {num:"15 MIN", lbl:"HALVES ×2"},
       {num:"₹30,000", lbl:"PRIZE POOL (UPTO)"},
-      {num:"₹5,500", lbl:"REGISTRATION / TEAM"},
+      {num:"₹6,000", lbl:"REGISTRATION / TEAM"},
     ],
     details:[
       {lbl:"PLAYERS", val:"9 players + 6 substitutes per team"},
@@ -716,7 +716,7 @@ const sportsData = [
       {lbl:"FORMAT", val:"Qualis → Semis → Finals, plus a Third Place match"},
       {lbl:"DATES", val:"27 Oct & 28 Oct 2026"},
       {lbl:"VENUE", val:"Cooperage Football Ground, Nariman Point"},
-      {lbl:"REGISTRATION FEE", val:"₹5,500 per team"},
+      {lbl:"REGISTRATION FEE", val:"₹6,000 per team"},
     ],
     rules:[
       "FORMAT: 9-a-side (9v9); squads of 11 to 15 players; 4 groups with top 2 advancing to quarter-finals; includes 3rd place match.",
@@ -741,8 +741,8 @@ const sportsData = [
     details:[
       {lbl:"FORMAT", val:"1v1 tournament"},
       {lbl:"PLAYING AREA", val:"6m × 4m cage"},
-      {lbl:"DATES", val:"27 Oct & 28 Oct 2026"},
-      {lbl:"VENUE", val:"Cooperage Football Ground, Nariman Point"},
+      {lbl:"DATES", val:"31 Oct & 1 Nov 2026"},
+      {lbl:"VENUE", val:"JVPD, Juhu"},
       {lbl:"REGISTRATION", val:"Free for all"},
       {lbl:"PRIZE", val:"Max Protein Bars"},
     ],
@@ -813,7 +813,7 @@ const sportsData = [
       "COURT: Matches will be played on a half-court with one basket.",
       "POSSESSION & SHOT CLOCK: The ball must be cleared beyond the 2-point arc after a change of possession, with a 12-second shot clock in effect.",
     ],
-    tiebreak:{title:"TIE-BREAKER", paragraphs:["In case of a tie at the end of regulation time, a Golden Basket will be played.","The team scoring the first basket wins the match."]},
+    tiebreak:{title:"TIE-BREAKER", paragraphs:["LEAGUE STAGE: If there is a tie at the end of regulation time, 3 minutes of overtime will be played, divided into two halves. If the score remains tied after overtime, Golden Basket will be played.","PLAYOFFS: If there is a tie at the end of regulation time, 3 minutes of overtime will be played, divided into two halves. If the score remains tied after overtime, Golden Basket will be played. The team scoring the first basket wins the match."]},
   },
   {
     id:"pickleball", key:"pickleball", index:"05", name:"PICKLEBALL", theme:"sec-navy",
@@ -967,7 +967,7 @@ sportsData.forEach(s=>{
     card.href = href;
     card.target = '_blank'; card.rel = 'noopener';
   }
-  card.innerHTML = `<div class="rc-name">${s.name}</div><div class="rc-fee">${fee}${s.key==='panna' ? ' — FREE FOR ALL' : ' PER TEAM/ENTRY'}</div><div class="rc-link">${s.key==='panna' ? 'OPEN TO ALL — 27 & 28 OCT' : (href ? 'REGISTER <span class="arrow">→</span>' : 'REGISTRATION LINK SOON')}</div>`;
+  card.innerHTML = `<div class="rc-name">${s.name}</div><div class="rc-fee">${fee}${s.key==='panna' ? ' — FREE FOR ALL' : ' PER TEAM/ENTRY'}</div><div class="rc-link">${s.key==='panna' ? 'OPEN TO ALL — 31 OCT & 1 NOV' : (href ? 'REGISTER <span class="arrow">→</span>' : 'REGISTRATION LINK SOON')}</div>`;
   registerGrid.appendChild(card);
 });
 
